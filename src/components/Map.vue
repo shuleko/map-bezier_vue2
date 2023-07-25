@@ -10,13 +10,13 @@
                     text-white
                     font-extrabold
                     text-2xl
-                    md:text-[32px] md:mb-4
+                    md:text-[32px]
                     px-4
                 "
             >
                 {{ title }}
             </h1>
-            <div class="w-full relative hidden lg:block">
+            <div class="w-full relative hidden md:block">
                 <img src="/images/russia.svg" alt="" class="w-full select-none" />
                 <svg
                     width="1300"
@@ -78,7 +78,6 @@
                     <div
                         v-for="(item, _) in cityData"
                         :key="_"
-                        v-if="item.value"
                         class="flex justify-between"
                     >
                         <span class="text-black"> {{ item.name }} </span>
@@ -112,7 +111,7 @@
                     </a>
                 </div>
             </div>
-            <div v-if="false" class="grid lg:hidden grid-cols-2 gap-2 px-4">
+            <div class="grid md:hidden grid-cols-2 gap-2 px-4">
                 <a
                     v-for="c in mapCities"
                     :key="c.city"
@@ -131,7 +130,7 @@
 import _ from 'lodash'
 
 export default {
-    props: ['title', 'id'],
+    props: ['title'],
     data() {
         return {
             constructions: null,
@@ -189,7 +188,7 @@ export default {
                 { name: 'Суперсайт', value: city.ss },
                 { name: 'Ситиборд', value: city.sb },
                 { name: 'Суперборд', value: city.spb },
-            ]
+            ].filter(x=> x.value)
         },
         citiesSvg() {
           if(!this.mapCities) return  null
@@ -223,12 +222,12 @@ export default {
 
     methods: {
         mapLink(city) {
-            return `/map?city=${city}`
+            // return `/map?city=${city}`
+            return `javascript:alert('Переход на страницу с информацией по городу ${city}');`
         },
 
         closePopup() {
             this.city = null
-            // this.clearPaths()
         },
 
         createSvgCity({x,y,text,oid,size,align}){
@@ -362,7 +361,7 @@ export default {
 <style lang="scss">
 
 .svg-map{
-  color:  white; // limegreen; //
+  color:  white; 
 
   &__link{
     pointer-events: bounding-box;
