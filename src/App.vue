@@ -1,34 +1,25 @@
 <template>
   <div id="app">
-    <div class="text-green-700 text-xl">Hello, from TailwindCSS!</div>
-    <map-bezier/>
+    <div class="container px-4 mx-auto mt-8">
+    <h1 class="text">Карта с путями</h1>
+    <div class="text">
+      <p>Пути на карте сторятся динамически с использованием модели кривых Безье.</p>
+      <p>vue2, tailwindcss, SCSS, SVG</p>
+    </div>
 
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    </div>
+    <map-bezier title = "Наши города" class="mt-4 mb-32" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Map from './components/Map.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     "map-bezier": Map
   }
 }
 </script>
 
-<style lang="scss">
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
