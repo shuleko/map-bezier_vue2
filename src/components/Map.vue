@@ -17,7 +17,7 @@
                 {{ title }}
             </h1>
             <div class="w-full relative hidden md:block">
-                <img src="/images/russia.svg" alt="" class="w-full select-none" />
+                <img :src="bgImage" alt="" class="w-full select-none" />
                 <svg
                     width="1300"
                     height="679"
@@ -212,6 +212,9 @@ export default {
           return result
         },
 
+      bgImage() {
+            return `${process.env.BASE_URL}images/russia.svg`
+      },
     },
 
     watch: {
@@ -361,7 +364,7 @@ export default {
 <style lang="scss">
 
 .svg-map{
-  color:  white; 
+  color:  white;
 
   &__link{
     pointer-events: bounding-box;
