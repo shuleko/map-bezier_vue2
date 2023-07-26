@@ -2,7 +2,6 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/map-bezier_vue2/'
-    : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/map-bezier_vue2/' : '/',
+  filenameHashing: false
 })
